@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.5.5/angular-route.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<style type="text/css">
+.sortorder:after {
+  content: '\25b2';
+}
+.sortorder.reverse:after {
+  content: '\25bc';
+}
+</style>
+
+<body ng-app="myApp">
+
+<div class="w3-container">
+
+<h3>Users</h3>
+
+<div ng-view>
+</div>
+
+<br>
+</div>
+<script src= "../app.js"></script>
+<script src= "../javascripts/myService.js"></script>
+<script src= "../javascripts/mainCtrl.js"></script>
+<script src= "../javascripts/myDirective.js"></script>
+</body>
+</html>

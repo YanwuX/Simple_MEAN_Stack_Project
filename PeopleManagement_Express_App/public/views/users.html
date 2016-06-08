@@ -1,0 +1,50 @@
+<input ng-model="searchText" placeholder="Search..."></input>
+
+<table class="w3-table w3-bordered w3-striped">
+  <tr>
+    <th>Edit</th>
+    <th ng-click="sortBy('fName')">First Name<span class="sortorder" ng-show="sortReference === 'fName'" ng-class="{reverse:reverse}"></span></th>
+    <th ng-click="sortBy('lName')">Last Name<span class="sortorder" ng-show="sortReference === 'lName'" ng-class="{reverse:reverse}"></span></th>
+    <th ng-click="sortBy('tittle')">Tittle<span class="sortorder" ng-show="sortReference === 'tittle'" ng-class="{reverse:reverse}"></span></th>
+    <th ng-click="sortBy('gender')">Gender<span class="sortorder" ng-show="sortReference === 'gender'" ng-class="{reverse:reverse}"></span></th>
+    <th ng-click="sortBy('age')">Age<span class="sortorder" ng-show="sortReference === 'age'" ng-class="{reverse:reverse}"></span></th>
+    <th>Delete</th>
+  </tr>
+  <tr ng-repeat="user in users | orderBy: sortReference : reverse | filter : searchText | limitTo : pageSize : startIndex">
+    <td>
+      <a href="#/edit/{{user._id}}"><button class="w3-btn w3-hover-green">&#9998; Edit</button></a>
+    </td>
+    <td>{{ user.fName }}</td>
+    <td>{{ user.lName }}</td>
+    <td>{{ user.tittle }}</td>
+    <td>{{ user.gender }}</td>
+    <td>{{ user.age }}</td>
+    <td>
+      <button class="w3-btn w3-hover-green" ng-click="deleteUser(user._id)"><i class="fa fa-trash"></i> Delete</button>
+    </td>
+  </tr>
+</table>
+
+  <!-- pager -->
+<div>
+  <ul ng-if="totalPages" class="pagination">
+      <li ng-class="{disabled:currentPage === 1}">
+          <a ng-click="setPage(1)">First</a>
+      </li>
+      <li ng-class="{disabled:currentPage === 1}">
+          <a ng-click="setPage(currentPage - 1)">Previous</a>
+      </li>
+      <li ng-repeat="page in pages" ng-class="{active:currentPage === page}">
+          <a ng-click="setPage(page)">{{page}}</a>
+      </li>                
+      <li ng-class="{disabled:currentPage === totalPages}">
+          <a ng-click="setPage(currentPage + 1)">Next</a>
+      </li>
+      <li ng-class="{disabled:currentPage === totalPages}">
+          <a ng-click="setPage(totalPages)">Last</a>
+      </li>
+  </ul>
+</div>
+
+
+<a href="#/create/"><button class="w3-btn w3-green w3-ripple">&#9998; Create New User</button></a>
